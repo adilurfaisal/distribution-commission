@@ -18,7 +18,7 @@ This app use for reference commission management.
 ```bash
   cd distribution-commission
   composer update
-  php artisan migrate:fresh --seed
+  php artisan migrate --seed
   php artisan serve
 ```
 
