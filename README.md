@@ -1,15 +1,59 @@
-Installation
------------------------
-1. Open project location
-2. >git clone https://github.com/abdusaziz/LaravelTodo.git
-3. >cd LaravelTodo
-4. >code . to open VisualStudio Code
-5. >composer update
-6. Duplicte .env.example file & rename to .env
-7. >php artisan key:generate
-8. >php artisan migrate
-9. >npm install
-10. >npm run dev
-11. >php artisan serve
 
-The app is ready to use.
+# Softic Laravel App
+
+This app use for reference commission management.
+
+
+
+# Installtion & Server #
+```bash
+  git clone https://github.com/adilurfaisal/distribution-commission.git
+```
+- copy .env.example
+- rename .env
+- open .env
+- change mysql connection
+
+### Laravel ( Backend ) ###
+```bash
+  cd distribution-commission
+  composer update
+  php artisan migrate:fresh --seed
+  php artisan serve
+```
+
+### Quasar ( Front-end ) ###
+```bash
+  cd softic-project
+  npm install
+  npm run dev
+```
+
+
+### Login  ###
+
+```
+Admin
+User: admin@gmail.com
+Pass: admin
+```
+```
+Affiliate
+User: affiliate@gmail.com
+Pass: affiliate
+```
+```
+Sub Affiliate
+User: subaffiliate@gmail.com
+Pass: subaffiliate
+```
+```
+Normal
+User: normal@gmail.com
+Pass: normal
+```
+```
+Normal Without Commission
+User: normalext@gmail.com
+Pass: normalext
+```

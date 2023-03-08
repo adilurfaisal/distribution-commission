@@ -37,10 +37,37 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::factory()->create([
-            'name' => 'Adil',
-            'email' => 'adil@gmail.com',
-            'password' => Hash::make("adil"),
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
+            'password' => Hash::make("admin"),
             'rule_id' => 1,
+        ]);
+        User::factory()->create([
+            'name' => 'Affiliate',
+            'email' => 'affiliate@gmail.com',
+            'password' => Hash::make("affiliate"),
+            'rule_id' => 2,
+            'ref_id' => 1
+        ]);
+        User::factory()->create([
+            'name' => 'Sub Affiliate',
+            'email' => 'subaffiliate@gmail.com',
+            'password' => Hash::make("subaffiliate"),
+            'rule_id' => 3,
+            'ref_id' => 2
+        ]);
+        User::factory()->create([
+            'name' => 'Normal',
+            'email' => 'normal@gmail.com',
+            'password' => Hash::make("normal"),
+            'rule_id' => 4,
+            'ref_id' => 3
+        ]);
+        User::factory()->create([
+            'name' => 'Normal - Commission',
+            'email' => 'normalext@gmail.com',
+            'password' => Hash::make("normalext"),
+            'rule_id' => 4
         ]);
         
     }
