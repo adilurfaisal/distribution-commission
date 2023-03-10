@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import { Dialog } from "quasar";
+import { Notify, Dialog } from "quasar";
 import { defineComponent, ref } from "vue";
 import route from "src/router/index";
 import { api } from "boot/axios";
@@ -62,8 +62,29 @@ export default defineComponent({
   mounted() {
     api.defaults.headers.common["Authorization"] =
       "Bearer " + localStorage.getItem("auth.token");
+
+    setInterval(async () => {
+      await this.sync_notification();
+    }, 1000 * 10);
   },
   methods: {
+    async sync_notification() {
+      api
+        .get(`/notification-sync`)
+        .then((res) => {
+          if (res.data && res.data.body) {
+            Notify.create({
+              color: "info",
+              position: "bottom-right",
+              message: res.data.body,
+              icon: "info",
+              html: true,
+            });
+          }
+        })
+        .catch((error) => {})
+        .finally(() => {});
+    },
     logout_confirm() {
       Dialog.create({
         title: "Confirm",

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\CommissionController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\TransactionController;
 
 
@@ -34,6 +35,7 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::get('transaction/{user_id}', [TransactionController::class, 'show'])->middleware('rules:1');
     Route::get('commission', [CommissionController::class, 'index'])->middleware('rules:2,3');
     Route::get('commission/{user_id}', [CommissionController::class, 'show'])->middleware('rules:1');
+    Route::get('notification-sync', [NotificationController::class, 'sync'])->middleware('rules:1,2,3,4');
 });
 
 Route::controller(AuthController::class)->group(function(){

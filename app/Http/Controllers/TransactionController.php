@@ -71,6 +71,7 @@ class TransactionController extends Controller
             return response()->json($response, 201);
         } catch (QueryException $e) {
             $response = [
+                "data" => $row_data,
                 "success" => false,
                 "message" => $e
             ];
